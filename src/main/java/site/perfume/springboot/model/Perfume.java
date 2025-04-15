@@ -1,23 +1,33 @@
 package site.perfume.springboot.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.UUID;
 
-@Entity
-@Getter
-@Setter
+@Entity(name = "Perfume")
+@Data
 public class Perfume {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    @Column(name = "codigo")
+    private UUID codigo;
 
+    @Column(name = "nomep")
     private String nomep;
+
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "preco")
     private double preco;
+
+    public Perfume() {}
+    public Perfume(UUID codigo, String nomep, String descricao, double preco) {
+        this.codigo = codigo;
+        this.nomep = nomep;
+        this.descricao = descricao;
+        this.preco = preco;
+    }
 }
