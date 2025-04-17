@@ -6,7 +6,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
+
 
 @Data
 @Entity(name = "Usuario")
@@ -14,22 +17,25 @@ public class Usuario {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID")
     private UUID id;
 
     @NotBlank
-    @Column(name = "nome")
+    @Column(name = "nome_usuario")
     private String nome;
 
     @NotBlank
     @Email
-    @Column(name = "email")
+    @Column(name = "email_usuario")
     private String email;
 
     @NotBlank
     @Min(8)
-    @Column(name = "senha")
+    @Column(name = "senha_usuario")
     private String senha;
+
+    @CreationTimestamp
+    private LocalDateTime dataCadastro;
 
     public Usuario() {}
     public Usuario(UUID id, String nome, String email, String senha) {

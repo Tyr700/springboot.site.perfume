@@ -10,17 +10,17 @@ import java.util.UUID;
 public class Perfume {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID")
     @Column(name = "codigo")
     private UUID codigo;
 
-    @Column(name = "nomep")
+    @Column(name = "nome_produto")
     private String nomep;
 
-    @Column(name = "descricao")
+    @Column(name = "descricao_produto")
     private String descricao;
 
-    @Column(name = "preco")
+    @Column(name = "preco_produto")
     private double preco;
 
     public Perfume() {}
