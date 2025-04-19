@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -13,7 +14,8 @@ import java.util.Base64;
 
 
 
-@Data
+@Setter
+@Getter
 @Entity(name = "Usuario")
 public class Usuario {
 
