@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface IUsuarioRepository extends JpaRepository<Usuario, UUID> {
     Usuario findByEmail(String email);
-    Usuario deleteByEmail(String email);
+    void deleteByEmail(String email);
 }

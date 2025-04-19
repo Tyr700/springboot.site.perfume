@@ -1,17 +1,16 @@
 package site.perfume.springboot.model;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.UUID;
 
-@Entity(name = "Perfume")
+@MappedSuperclass
 @Data
-public class Perfume {
+public abstract class Perfume {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "codigo")
+    @Column(name = "codigo_produto")
     private UUID codigo;
 
     @Column(name = "nome_produto")
