@@ -1,4 +1,7 @@
 package site.perfume.springboot.repository;
 
-public interface IConsultorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import site.perfume.springboot.model.Consultor;
+
+public interface IConsultorRepository  extends JpaRepository<Consultor, Long> {
 }

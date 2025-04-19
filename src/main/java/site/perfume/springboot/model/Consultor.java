@@ -6,12 +6,15 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.mapping.UniqueKey;
 
 @Entity(name = "Consultor")
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Consultor {
 
     @Id
@@ -28,16 +31,8 @@ public class Consultor {
     @NotBlank
     private String email;
 
-    @Column(name = "cpf")
-    private UniqueKey cpf;
+    @Column(unique = true)
+    private String documento;
 
-    public Consultor() {
-    }
-    public Consultor(Long cid, String nome, String email, UniqueKey cpf) {
-        this.cid = cid;
-        this.nome = nome;
-        this.email = email;
-        this.cpf = cpf;
 
-    }
 }
