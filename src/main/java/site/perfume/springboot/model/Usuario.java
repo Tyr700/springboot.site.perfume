@@ -9,6 +9,8 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.Base64;
+
 
 
 @Data
@@ -35,14 +37,18 @@ public class Usuario {
     private String senha;
 
     @CreationTimestamp
+    @Column(name = "data_cadastro_usuario")
     private LocalDateTime dataCadastro;
 
+    private String senha_codificada = Base64.getEncoder().encodeToString(senha.getBytes());
+
     public Usuario() {}
-    public Usuario(UUID id, String nome, String email, String senha) {
+    public Usuario(UUID id, String nome, String email, String senha, LocalDateTime dataCadastro) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.dataCadastro = dataCadastro;
     }
 
 
