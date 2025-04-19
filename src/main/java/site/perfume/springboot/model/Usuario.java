@@ -42,9 +42,9 @@ public class Usuario {
     @Column(name = "data_cadastro_usuario")
     private LocalDateTime dataCadastro;
 
-    private String senha_codificada = Base64.getEncoder().encodeToString(senha.getBytes());
 
-    public Usuario() {}
+    public Usuario() {
+    }
     public Usuario(UUID id, String nome, String email, String senha, LocalDateTime dataCadastro) {
         this.id = id;
         this.nome = nome;

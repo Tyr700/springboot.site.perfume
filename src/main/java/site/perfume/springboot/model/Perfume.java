@@ -22,7 +22,8 @@ public abstract class Perfume {
     @Column(name = "preco_produto")
     private double preco;
 
-    public Perfume() {}
+    public Perfume() {
+    }
     public Perfume(UUID codigo, String nomep, String descricao, double preco) {
         this.codigo = codigo;
         this.nomep = nomep;
