@@ -3,10 +3,7 @@ package site.perfume.springboot.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import site.perfume.springboot.errors.UsuarioJaExiste;
 import site.perfume.springboot.model.Usuario;
 import site.perfume.springboot.service.UsuarioService;
@@ -33,6 +30,15 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMensagem());
         }
     }
+
+    public ResponseEntity<List<Usuario>> getAllUsers() {
+        var users = usuarioService.listarUsuarios();
+        if (users.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+        return ResponseEntity.ok(users);
+    }
+
 
 
 }
