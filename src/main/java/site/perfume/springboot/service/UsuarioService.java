@@ -1,7 +1,6 @@
 package site.perfume.springboot.service;
 
 import java.util.List;
-
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import site.perfume.springboot.errors.UsuarioJaExiste;
@@ -26,11 +25,16 @@ public class UsuarioService {
         return userExistente;
     }
 
+    public List<Usuario> listarUsuarios() {
+        return usuarioRepository.findAll();
+    }
+
     public Usuario buscarPorEmail (String email) {
         usuarioRepository.findByEmail(email);
         return null;
     }
 
+    @Transactional
     public void deletePorEmail (String email) {
         usuarioRepository.deleteByEmail(email);
     }
