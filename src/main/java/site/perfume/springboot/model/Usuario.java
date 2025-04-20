@@ -5,18 +5,20 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 
-
-
 @Setter
 @Getter
 @Entity(name = "Usuario")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Usuario {
 
     @Id
@@ -41,18 +43,5 @@ public class Usuario {
     @CreationTimestamp
     @Column(name = "data_cadastro_usuario")
     private LocalDateTime dataCadastro;
-
-
-    public Usuario() {
-    }
-    public Usuario(UUID id, String nome, String email, String senha, LocalDateTime dataCadastro) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.dataCadastro = dataCadastro;
-    }
-
-
 
 }
