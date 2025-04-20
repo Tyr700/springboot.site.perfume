@@ -10,7 +10,6 @@ public abstract class Perfume {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "codigo_produto")
     private UUID codigo;
 
     @Column(name = "nome_produto")

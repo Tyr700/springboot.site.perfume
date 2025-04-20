@@ -14,18 +14,18 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 @Service
 public class UsuarioService {
 
-    private IUsuarioRepository usuarioRepository;
+    private final IUsuarioRepository usuarioRepository;
 
     public UsuarioService(IUsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
     public Usuario criarUsuario(Usuario userModel) {
-        var userExistente = usuarioRepository.findByEmail(userModel.getEmail());
-        if (userExistente != null) {
+        var usuarioExistente = usuarioRepository.findByEmail(userModel.getEmail());
+        if (usuarioExistente != null) {
             throw new UsuarioJaExiste();
         }
-        return userExistente;
+        return null;
     }
 
     public List<Usuario> listarUsuarios() {
