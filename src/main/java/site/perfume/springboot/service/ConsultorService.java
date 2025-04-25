@@ -4,7 +4,6 @@ package site.perfume.springboot.service;
 import org.springframework.stereotype.Service;
 import site.perfume.springboot.errors.ConsultorJaExiste;
 import site.perfume.springboot.model.Consultor;
-import site.perfume.springboot.model.Usuario;
 import site.perfume.springboot.repository.IConsultorRepository;
 
 import java.util.List;
