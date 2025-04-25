@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import site.perfume.springboot.errors.UsuarioJaExiste;
+import site.perfume.springboot.errors.UsuarioNaoEncontrado;
 import site.perfume.springboot.model.Usuario;
 import site.perfume.springboot.service.UsuarioService;
 import java.util.List;
@@ -28,6 +29,16 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.CREATED).body(user);
         } catch (UsuarioJaExiste e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMensagem());
+        }
+    }
+
+    @DeleteMapping("/deletar")
+    public ResponseEntity<?> deletarUsuario(@RequestBody Usuario usuario) {
+        try {
+            usuarioService.deletePorEmail(usuario.getEmail());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (UsuarioNaoEncontrado e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getAviso());
         }
     }
 

@@ -20,8 +20,8 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Usuario criarUsuario(Usuario userModel) {
-        var usuarioExistente = usuarioRepository.findByEmail(userModel.getEmail());
+    public Usuario criarUsuario(Usuario usuario) {
+        var usuarioExistente = usuarioRepository.findByEmail(usuario.getEmail());
         if (usuarioExistente != null) {
             throw new UsuarioJaExiste();
         }
