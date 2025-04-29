@@ -25,7 +25,10 @@ public class UsuarioService {
         if (usuarioExistente != null) {
             throw new UsuarioJaExiste();
         }
-        return null;
+        String senhaCriptografada = BCrypt.withDefaults().hashToString(12, usuario.getSenha().toCharArray());
+        usuario.setSenha(senhaCriptografada);
+
+        return usuarioRepository.save(usuario);
     }
 
     public List<Usuario> listarUsuarios() {

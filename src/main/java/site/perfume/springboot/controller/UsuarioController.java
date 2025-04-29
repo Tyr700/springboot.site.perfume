@@ -22,7 +22,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping("/")
     public ResponseEntity<?> criarUsuario(@RequestBody Usuario usuario) {
         try {
             var user = usuarioService.criarUsuario(usuario);
@@ -32,7 +32,7 @@ public class UsuarioController {
         }
     }
 
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/")
     public ResponseEntity<?> deletarUsuario(@RequestBody Usuario usuario) {
         try {
             usuarioService.deletePorEmail(usuario.getEmail());
@@ -42,6 +42,7 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/todos")
     public ResponseEntity<List<Usuario>> getAllUsers() {
         var users = usuarioService.listarUsuarios();
         if (users.isEmpty()) {
