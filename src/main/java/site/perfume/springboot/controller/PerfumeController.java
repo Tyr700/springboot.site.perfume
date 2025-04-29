@@ -1,0 +1,44 @@
+package site.perfume.springboot.controller;
+
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import site.perfume.springboot.errors.PerfumeJaExiste;
+import site.perfume.springboot.model.Perfume;
+import site.perfume.springboot.service.PerfumeService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/perfumes")
+public class PerfumeController {
+
+    private PerfumeService perfumeService;
+
+    public PerfumeController(PerfumeService perfumeService) {
+        this.perfumeService = perfumeService;
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<?> criarUsuario(@RequestBody Perfume perfume) {
+        try {
+            var perfumer = perfumeService.criarPerfume(perfume);
+            return ResponseEntity.status(HttpStatus.CREATED).body(perfumer);
+        } catch (PerfumeJaExiste e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMensagemp());
+        }
+    }
+
+    @GetMapping("/todos")
+    public ResponseEntity<List<Perfume>> getAllPerfumes () {
+        var perfumer = perfumeService.listarPerfumes();
+        if (perfumer.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+        return ResponseEntity.ok(perfumer);
+    }
+
+
+}
