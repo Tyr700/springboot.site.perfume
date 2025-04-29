@@ -1,6 +1,7 @@
 package site.perfume.springboot.service;
 
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import site.perfume.springboot.errors.ConsultorJaExiste;
 import site.perfume.springboot.model.Consultor;
@@ -13,17 +14,21 @@ public class ConsultorService {
 
     private final IConsultorRepository consultorRepository;
 
+
     public ConsultorService(IConsultorRepository consultorRepository) {
         this.consultorRepository = consultorRepository;
     }
 
 
-    public Consultor criarConsultor(Consultor consultorModel) {
-        var consultorExistente = consultorRepository.findByDocumento(consultorModel.getDocumento());
+    public Consultor criarConsultor(Consultor consultor) {
+        var consultorExistente = consultorRepository.findByDocumento(consultor.getDocumento());
         if (consultorExistente != null) {
             throw new ConsultorJaExiste();
         }
-        return null;
+        String numeroUnicoCriptografado = BCrypt.withDefaults().hashToString(12, consultor.getNumeroUnico().toCharArray());
+        consultor.setNumeroUnico(numeroUnicoCriptografado);
+
+        return consultorRepository.save(consultor);
     }
 
     public List<Consultor> listarConsultores() {

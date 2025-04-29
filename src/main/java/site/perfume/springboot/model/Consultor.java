@@ -3,6 +3,7 @@ package site.perfume.springboot.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -30,5 +31,9 @@ public class Consultor {
 
     @Column(name = "documento", unique = true)
     private String documento;
+
+    @Column(name = "numero_unico", unique = true)
+    @Min(8)
+    private String numeroUnico;
 
 }

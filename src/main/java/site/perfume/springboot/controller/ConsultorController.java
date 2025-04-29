@@ -19,7 +19,7 @@ public class ConsultorController {
         this.consultorService = consultorService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping("/")
     public ResponseEntity<?> criarConsultor(@RequestBody Consultor consultor) {
         try {
             var consultant = consultorService.criarConsultor(consultor);
@@ -29,6 +29,7 @@ public class ConsultorController {
         }
     }
 
+    @GetMapping("/todos")
     public ResponseEntity<List<Consultor>> getAllconsultants() {
         var consultants = consultorService.listarConsultores();
         if (consultants.isEmpty()) {
