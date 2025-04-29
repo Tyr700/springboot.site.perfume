@@ -24,7 +24,7 @@ public class PerfumeService {
         if (perfumeExistente != null) {
             throw new PerfumeJaExiste();
         }
-        return null;
+        return perfumeRepository.save(perfume);
     }
 
     public List<Perfume> listarPerfumes() {
