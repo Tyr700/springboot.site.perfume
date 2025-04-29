@@ -6,7 +6,10 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import site.perfume.springboot.errors.PerfumeJaExiste;
+import site.perfume.springboot.errors.PerfumeNaoEncontrado;
+
 import site.perfume.springboot.model.Perfume;
+
 import site.perfume.springboot.service.PerfumeService;
 
 import java.util.List;
@@ -28,6 +31,16 @@ public class PerfumeController {
             return ResponseEntity.status(HttpStatus.CREATED).body(perfumer);
         } catch (PerfumeJaExiste e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMensagemp());
+        }
+    }
+
+    @DeleteMapping("/")
+    public ResponseEntity<?> deletarPerfume(@RequestBody Perfume perfume) {
+        try {
+            perfumeService.deletePorCodigo(perfume.getCodigo());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (PerfumeNaoEncontrado e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getAvisop());
         }
     }
 

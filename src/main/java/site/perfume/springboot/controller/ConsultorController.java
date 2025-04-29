@@ -5,7 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import site.perfume.springboot.errors.ConsultorJaExiste;
+import site.perfume.springboot.errors.ConsultorNaoEncontrado;
+
 import site.perfume.springboot.model.Consultor;
+
 import site.perfume.springboot.service.ConsultorService;
 import java.util.List;
 
@@ -36,6 +39,16 @@ public class ConsultorController {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
         return ResponseEntity.ok(consultants);
+    }
+
+    @DeleteMapping("/")
+    public ResponseEntity<?> deletarConsultor(@RequestBody Consultor consultor) {
+        try {
+            consultorService.deletePorDocumento(consultor.getDocumento());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (ConsultorNaoEncontrado e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getAvisoc());
+        }
     }
 
 

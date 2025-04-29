@@ -2,6 +2,7 @@ package site.perfume.springboot.service;
 
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import site.perfume.springboot.errors.ConsultorJaExiste;
 import site.perfume.springboot.model.Consultor;
@@ -33,6 +34,11 @@ public class ConsultorService {
 
     public List<Consultor> listarConsultores() {
         return consultorRepository.findAll();
+    }
+
+    @Transactional
+    public void deletePorDocumento (String documento) {
+        consultorRepository.deleteByDocumento(documento);
     }
 
 }
