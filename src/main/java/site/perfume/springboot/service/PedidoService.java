@@ -17,11 +17,15 @@ public class PedidoService {
         this.pedidoRepository = pedidoRepository;
     }
 
-    public Pedido criarPedido (Pedido pedido) {
+    public Pedido fazerPedido (Pedido pedido) {
         return pedidoRepository.save(pedido);
     }
     public List<Pedido> listarPedidosPorUsuario(UUID id) {
         return pedidoRepository.findAllUsuarioId(id);
+    }
+
+    public Pedido buscarPorNumero(Long numeroPedido) {
+        return pedidoRepository.findByNumeroPedido(numeroPedido);
     }
 
 }
