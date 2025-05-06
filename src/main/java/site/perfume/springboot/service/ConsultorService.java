@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import site.perfume.springboot.errors.ConsultorJaExiste;
 import site.perfume.springboot.model.Consultor;
+import site.perfume.springboot.model.Usuario;
 import site.perfume.springboot.repository.IConsultorRepository;
 
 import java.util.List;
@@ -34,6 +35,11 @@ public class ConsultorService {
 
     public List<Consultor> listarConsultores() {
         return consultorRepository.findAll();
+    }
+
+    public Usuario buscarPorDocumento (String documento) {
+        consultorRepository.findByDocumento(documento);
+        return null;
     }
 
     @Transactional

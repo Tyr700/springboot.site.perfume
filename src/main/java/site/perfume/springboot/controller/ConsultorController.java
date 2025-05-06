@@ -41,6 +41,17 @@ public class ConsultorController {
         return ResponseEntity.ok(consultants);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<?> buscarPorDocumento (@RequestBody Consultor consultor) {
+        try {
+            consultorService.buscarPorDocumento(consultor.getDocumento());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (ConsultorNaoEncontrado e) {
+            return ResponseEntity.ok(consultor);
+        }
+    }
+
+
     @DeleteMapping("/")
     public ResponseEntity<?> deletarConsultor(@RequestBody Consultor consultor) {
         try {
