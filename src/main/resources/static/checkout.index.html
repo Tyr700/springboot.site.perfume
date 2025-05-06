@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="checkout1.style.css" />
+  </head>
+  <body>
+    <div class="checkout-LINK">
+      <div class="background">
+        <div class="container">
+          <main class="main">
+            <section class="section">
+              <h2 class="text-wrapper">Itens do carrinho</h2>
+              <div class="div">
+                <button class="container-2"><span class="text-wrapper-2">Limpar carrinho</span></button>
+                <button class="container-2"><span class="text-wrapper-2">Compartilhar</span></button>
+              </div>
+            </section>
+<section class="section">
+  <div class="container-3">
+    <h2 class="text-wrapper">Calcule o frete</h2>
+    <div class="container-4">
+      <div class="border">
+        <div class="input">
+          <input
+            type="text"
+            class="text-wrapper-3"
+            placeholder="00000-000"
+            aria-label="CEP"
+            maxlength="9"
+            oninput="formatCEP(this)"
+          />
+        </div>
+        <button class="button"><span class="text-wrapper-4">Calcular</span></button>
+      </div>
+      <div class="div-wrapper-2">
+        <a
+          href="http://www.buscacep.correios.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-wrapper-5"
+        >
+          Não sei meu CEP
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function formatCEP(input) {
+    let value = input.value.replace(/\D/g, ''); // Remove tudo que não for número
+    if (value.length > 5) {
+      value = value.slice(0, 5) + '-' + value.slice(5, 8);
+    }
+    input.value = value.slice(0, 9); // Limita a 9 caracteres totais (incluindo o hífen)
+  }
+</script>
+
+            
+          </main>
+          <aside class="section-2">
+            <h2 class="text-wrapper">Resumo</h2>
+            <div class="container-5">
+              <div class="container-6"><span class="text-wrapper-6">Produto (0)</span></div>
+              <div class="container-7"><span class="text-wrapper-7">R$ 00,00</span></div>
+            </div>
+            <div class="container-5">
+              <div class="container-6"><span class="text-wrapper-6">Taxa de entrega</span></div>
+              <div class="link"><span class="text-wrapper-8">Calcular</span></div>
+            </div>
+            <div class="container-8">
+              <div class="container-6"><span class="text-wrapper-6">Total do pedido</span></div>
+              <div class="container-6"><span class="text-wrapper-9">R$ 00,00</span></div>
+            </div>
+            <button class="container-wrapper">
+              <a href="checkout02.index.html" class="finalizar">
+                <span class="text-wrapper-10">FINALIZAR COMPRA</span>
+              </a>
+            </button>
+          </aside>
+        </div>
+        <footer class="footer">
+          <div class="container-10">
+            <div class="container-11">
+              <div class="heading-margin">
+                <h3 class="text-wrapper-11">Aceitamos:</h3>
+              </div>
+              <div class="component">
+                <div class="component-2">
+                  <div class="visa">
+                    <div class="div-wrapper-3">
+                      <div class="overlap-group-wrapper">
+                        <div class="overlap-group">
+                          <img
+                            class="group"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/group.png"
+                            alt="Visa logo"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mastercard">
+                    <div class="div-wrapper-3">
+                      <div class="overlap-group-wrapper">
+                        <div class="overlap-group">
+                          <img
+                            class="vector"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-12.svg"
+                            alt="Mastercard logo part 1"
+                          />
+                          <img
+                            class="img"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-12.svg"
+                            alt="Mastercard logo part 2"
+                          />
+                          <img
+                            class="vector-2"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-10.svg"
+                            alt="Mastercard logo part 3"
+                          />
+                          <img
+                            class="vector-3"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-5.svg"
+                            alt="Mastercard logo part 4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diners-club">
+                    <div class="div-wrapper-3">
+                      <div class="overlap-group-wrapper">
+                        <div class="overlap-group">
+                          <img
+                            class="group-2"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/group-1.png"
+                            alt="Diners Club logo"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="elo">
+                    <div class="div-wrapper-3">
+                      <div class="overlap-group-wrapper-2">
+                        <div class="overlap-group">
+                          <img
+                            class="vector-4"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-3.svg"
+                            alt="Elo logo part 1"
+                          />
+                          <img
+                            class="vector-5"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-11.svg"
+                            alt="Elo logo part 2"
+                          />
+                          <img
+                            class="vector-6"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-4.svg"
+                            alt="Elo logo part 3"
+                          />
+                          <img
+                            class="vector-7"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-6.svg"
+                            alt="Elo logo part 4"
+                          />
+                          <img
+                            class="vector-8"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-2.svg"
+                            alt="Elo logo part 5"
+                          />
+                          <img
+                            class="vector-9"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-1.svg"
+                            alt="Elo logo part 6"
+                          />
+                          <img
+                            class="vector-10"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-17.svg"
+                            alt="Elo logo part 7"
+                          />
+                          <img
+                            class="vector-11"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-21.svg"
+                            alt="Elo logo part 8"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hipercard">
+                    <div class="div-wrapper-3">
+                      <div class="overlap-group-wrapper">
+                        <div class="overlap-group">
+                          <img
+                            class="vector-12"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-36.svg"
+                            alt="Hipercard logo part 1"
+                          />
+                          <img
+                            class="vector-13"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-28.svg"
+                            alt="Hipercard logo part 2"
+                          />
+                          <img
+                            class="vector-14"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-25.svg"
+                            alt="Hipercard logo part 3"
+                          />
+                          <img
+                            class="vector-15"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-30.svg"
+                            alt="Hipercard logo part 4"
+                          />
+                          <img
+                            class="vector-16"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-35.svg"
+                            alt="Hipercard logo part 5"
+                          />
+                          <img
+                            class="vector-17"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-43.svg"
+                            alt="Hipercard logo part 6"
+                          />
+                          <img
+                            class="vector-18"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-20.svg"
+                            alt="Hipercard logo part 7"
+                          />
+                          <img
+                            class="vector-19"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-40.svg"
+                            alt="Hipercard logo part 8"
+                          />
+                          <img
+                            class="vector-20"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-42.svg"
+                            alt="Hipercard logo part 9"
+                          />
+                          <img
+                            class="vector-21"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-20.svg"
+                            alt="Hipercard logo part 10"
+                          />
+                          <img
+                            class="vector-22"
+                            src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-23.svg"
+                            alt="Hipercard logo part 11"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="american-express">
+                  <div class="div-wrapper-3">
+                    <div class="overlap-group-wrapper-2">
+                      <div class="overlap-group">
+                        <img
+                          class="vector-23"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-29.svg"
+                          alt="American Express logo part 1"
+                        />
+                        <img
+                          class="vector-23"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-33.svg"
+                          alt="American Express logo part 2"
+                        />
+                        <img
+                          class="vector-24"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-22.svg"
+                          alt="American Express logo part 3"
+                        />
+                        <img
+                          class="vector-25"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-37.svg"
+                          alt="American Express logo part 4"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pix">
+                  <div class="div-wrapper-3">
+                    <div class="overlap-group-wrapper-2">
+                      <div class="overlap-group">
+                        <img
+                          class="vector-26"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-31.svg"
+                          alt="Pix logo part 1"
+                        />
+                        <img
+                          class="vector-27"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-39.svg"
+                          alt="Pix logo part 2"
+                        />
+                        <img
+                          class="vector-28"
+                          src="https://c.animaapp.com/ma47lca5FrFo1n/img/vector-19.svg"
+                          alt="Pix logo part 3"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-margin"></div>
+              <div class="container-12">
+                <h3 class="text-wrapper-11">Dúvidas?</h3>
+                <div class="container-13">
+                  <div class="item"></div>
+                  <div class="item-2"></div>
+                  <div class="item-3"></div>
+                </div>
+              </div>
+              <address class="text-wrapper-12">| linsley586@gmail.com</address>
+            </div>
+            <div class="container-14">
+              <p class="text-wrapper-13">Todos os direitos reservados</p>
+              <p class="text-wrapper-14">14.644.896/0001-56</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="background-2">
+        <div class="container-15">
+          <div class="container-16"><p class="text-wrapper-15">Linsley</p></div>
+        </div>
+      </div>
+      <header class="header">
+        <div class="container-17">
+          <img class="SVG" src="https://c.animaapp.com/ma47lca5FrFo1n/img/svg.svg" alt="Security icon" />
+          <p class="text-wrapper-16">AMBIENTE 100% SEGURO</p>
+        </div>
+        <img class="image" id="logo" src="https://c.animaapp.com/ma47lca5FrFo1n/img/image-4.png" alt="Company logo" />
+        <a href="index.html" class="image">
+      </header>
+    </div>
+  </body>
+</html>
