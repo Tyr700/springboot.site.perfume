@@ -26,6 +26,10 @@ public class PerfumeService {
         }
         return perfumeRepository.save(perfume);
     }
+    public Perfume buscarPorNome (String nomep) {
+        perfumeRepository.findByNomep(nomep);
+        return null;
+    }
 
     public List<Perfume> listarPerfumes() {
         return perfumeRepository.findAll();

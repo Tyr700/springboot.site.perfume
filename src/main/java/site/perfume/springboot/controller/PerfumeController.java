@@ -25,7 +25,7 @@ public class PerfumeController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> criarUsuario(@RequestBody Perfume perfume) {
+    public ResponseEntity<?> criarPerfume(@RequestBody Perfume perfume) {
         try {
             var perfumer = perfumeService.criarPerfume(perfume);
             return ResponseEntity.status(HttpStatus.CREATED).body(perfumer);
@@ -43,6 +43,16 @@ public class PerfumeController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getAvisop());
         }
     }
+    @GetMapping("/")
+    public ResponseEntity<?> buscarPorNome (@RequestBody Perfume perfume) {
+        try {
+            perfumeService.buscarPorNome(perfume.getNomep());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (PerfumeNaoEncontrado e) {
+            return ResponseEntity.ok(perfume);
+        }
+    }
+
 
     @GetMapping("/todos")
     public ResponseEntity<List<Perfume>> getAllPerfumes () {

@@ -42,6 +42,16 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/")
+    public ResponseEntity<?> buscarPorEmail (@RequestBody Usuario usuario) {
+        try {
+            usuarioService.buscarPorEmail(usuario.getEmail());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (UsuarioNaoEncontrado e) {
+            return ResponseEntity.ok(usuario);
+        }
+    }
+
     @GetMapping("/todos")
     public ResponseEntity<List<Usuario>> getAllUsers() {
         var users = usuarioService.listarUsuarios();
