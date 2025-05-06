@@ -6,6 +6,7 @@ import site.perfume.springboot.model.Pedido;
 import site.perfume.springboot.repository.IPedidoRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -24,7 +25,7 @@ public class PedidoService {
         return pedidoRepository.findAllUsuarioId(id);
     }
 
-    public Pedido buscarPorNumero(Long numeroPedido) {
+    public Optional<Pedido> buscarPorNumeroPedido(Long numeroPedido) {
         return pedidoRepository.findByNumeroPedido(numeroPedido);
     }
 
