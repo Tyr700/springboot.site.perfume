@@ -43,13 +43,21 @@ public class UsuarioController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<?> buscarPorEmail (@RequestBody Usuario usuario) {
-        try {
-            usuarioService.buscarPorEmail(usuario.getEmail());
+    public ResponseEntity<?> buscarPorEmail (@RequestParam String email) {
+        var user = usuarioService.buscarPorEmail(email);
+        if (user == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        } catch (UsuarioNaoEncontrado e) {
-            return ResponseEntity.ok(usuario);
         }
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Usuario userModel) {
+        boolean autenticado = usuarioService.autenticar(userModel.getEmail(), userModel.getSenha());
+        if (autenticado) {
+            return ResponseEntity.ok("Autenticação bem-sucedida");
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha incorreta");
     }
 
     @GetMapping("/todos")
