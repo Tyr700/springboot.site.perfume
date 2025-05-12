@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "code": "P001",
+      "name": "Perfume Lumina Parfum 50ml",
+      "price": "R$ 139,90",
+      "img": "../imgs/lumina.png"
+    },
+    {
+      "code": "P002",
+      "name": "Perfume Allegra Parfum 50ml",
+      "price": "R$ 99,99",
+      "img": "../imgs/allegra.png"
+    },
+    {
+      "code": "P003",
+      "name": "Perfume Aurelia Parfum 50ml",
+      "price": "R$ 105,90",
+      "img": "../imgs/aurelia.png"
+    },
+    {
+      "code": "P004",
+      "name": "Perfume Aurora Parfum 50ml",
+      "price": "R$ 95,90",
+      "img": "../imgs/aurora.png"
+    },
+    {
+      "code": "P005",
+      "name": "Perfume Calenthia Parfum 50ml",
+      "price": "R$ 94,90",
+      "img": "../imgs/calenthia.png"
+    },
+    {
+      "code": "P006",
+      "name": "Perfume Éclat Parfum 50ml",
+      "price": "R$ 99,90",
+      "img": "../imgs/eclat.png"
+    },
+    {
+      "code": "P007",
+      "name": "Perfume Eclipse Parfum 50ml",
+      "price": "R$ 95,95",
+      "img": "../imgs/eclipse.png"
+    },
+    {
+      "code": "P008",
+      "name": "Perfume Élinor Parfum 50ml",
+      "price": "R$ 97,90",
+      "img": "../imgs/elinor.png"
+    },
+    {
+      "code": "P009",
+      "name": "Perfume Fleurs de Mythes Parfum 50ml",
+      "price": "R$ 115,90",
+      "img": "../imgs/fleurs.png"
+    },
+    {
+      "code": "P010",
+      "name": "Perfume Isolde Parfum 50ml",
+      "price": "R$ 119,90",
+      "img": "../imgs/isolde.png"
+    },
+    {
+      "code": "P011",
+      "name": "Perfume Mirabelle Parfum 50ml",
+      "price": "R$ 103,90",
+      "img": "../imgs/mirabelle.png"
+    },
+    {
+      "code": "P012",
+      "name": "Perfume Nocturne Parfum 50ml",
+      "price": "R$ 99,90",
+      "img": "../imgs/nocturne.png"
+    },
+    {
+      "code": "P013",
+      "name": "Perfume Oceana Parfum 50ml",
+      "price": "R$ 129,90",
+      "img": "../imgs/oceana.png"
+    },
+    {
+      "code": "P014",
+      "name": "Perfume Oceania Parfum 50ml",
+      "price": "R$ 149,90",
+      "img": "../imgs/oceania.png"
+    }
+  ]
+}

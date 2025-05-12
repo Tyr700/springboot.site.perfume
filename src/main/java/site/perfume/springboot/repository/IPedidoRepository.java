@@ -8,6 +8,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IPedidoRepository extends JpaRepository <Pedido, Long> {
-    Optional <Pedido> findByNumeroPedido(Long numeroPedido);
-    List<Pedido> findAllUsuarioId (UUID id);
+    Optional<Pedido> findByNumeroPedido(Long numeroPedido);
+
+    // ATENÇÃO: renomear para:
+    List<Pedido> findAllByUsuarioId(UUID usuarioId);
+
 }

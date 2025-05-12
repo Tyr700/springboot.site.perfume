@@ -12,8 +12,6 @@ import java.util.UUID;
 
 @Entity(name = "Consultor")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Consultor {
 
     @Id

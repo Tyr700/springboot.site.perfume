@@ -6,6 +6,28 @@
     <title>Checkout Page</title>
     <link rel="stylesheet" href="../css/globals.css" />
     <link rel="stylesheet" href="../css/checkout1.style.css" />
+    <style>
+      .cart-list {
+  list-style: none;
+  padding: 0;
+}
+.cart-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.cart-list img {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+  object-fit: contain;
+}
+.cart-list .item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+    </style>
   </head>
   <body>
     <div class="checkout-LINK">
@@ -14,6 +36,7 @@
           <main class="main">
             <section class="section">
               <h2 class="text-wrapper">Itens do carrinho</h2>
+              <ul id="cart-items" class="cart-list"></ul> 
               <div class="div">
                 <button class="container-2"><span class="text-wrapper-2">Limpar carrinho</span></button>
                 <button class="container-2"><span class="text-wrapper-2">Compartilhar</span></button>
@@ -63,6 +86,12 @@
             
           </main>
           <aside class="section-2">
+
+            <section class="section">
+              <h2 class="text-wrapper">Itens do carrinho</h2>
+              <ul id="cart-items" class="cart-list"></ul>
+            </section>
+
             <h2 class="text-wrapper">Resumo</h2>
             <div class="container-5">
               <div class="container-6"><span class="text-wrapper-6">Produto (0)</span></div>
@@ -342,4 +371,49 @@
       </header>
     </div>
   </body>
+
+  <ul id="cart-items"></ul>
+  <script>
+  const carrinho = JSON.parse(localStorage.getItem('meuCarrinho') || '[]');
+  const lista = document.getElementById('cart-items');
+  const resumoQtd = document.querySelector('.text-wrapper-6');   // "Produto (0)"
+  const resumoTotal = document.querySelector('.text-wrapper-9'); // "R$ 00,00"
+
+  if (carrinho.length === 0) {
+    lista.innerHTML = '<li>Seu carrinho está vazio</li>';
+    resumoQtd.textContent = 'Produto (0)';
+  } else {
+    lista.innerHTML = '';  // limpa
+    carrinho.forEach(p => {
+      const li = document.createElement('li');
+
+      // miniatura
+      const img = document.createElement('img');
+      img.src = p.img;
+      img.alt = p.name;
+
+      // texto
+      const info = document.createElement('div');
+      info.className = 'item-info';
+      const nome = document.createElement('span');
+      nome.textContent = p.name;
+      const preço = document.createElement('span');
+      preço.textContent = p.price;
+
+      info.append(nome, preço);
+      li.append(img, info);
+      lista.appendChild(li);
+    });
+
+    resumoQtd.textContent = `Produto (${carrinho.length})`;
+
+    // calcula total
+    const total = carrinho.reduce((sum, p) => {
+      const v = parseFloat(p.price.replace(/[R$\s]/g, '').replace(',', '.'));
+      return sum + v;
+    }, 0);
+    resumoTotal.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+  }
+</script>
+
 </html>

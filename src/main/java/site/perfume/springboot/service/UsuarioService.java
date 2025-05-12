@@ -1,13 +1,11 @@
 package site.perfume.springboot.service;
 
-import java.util.Base64;
 import java.util.List;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import site.perfume.springboot.errors.UsuarioJaExiste;
 import site.perfume.springboot.model.Usuario;
 import site.perfume.springboot.repository.IUsuarioRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 

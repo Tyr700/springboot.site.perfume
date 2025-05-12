@@ -22,7 +22,7 @@ public class PedidoService {
         return pedidoRepository.save(pedido);
     }
     public List<Pedido> listarPedidosPorUsuario(UUID id) {
-        return pedidoRepository.findAllUsuarioId(id);
+        return pedidoRepository.findAllByUsuarioId(id);
     }
 
     public Optional<Pedido> buscarPorNumeroPedido(Long numeroPedido) {
