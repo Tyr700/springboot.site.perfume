@@ -5,7 +5,7 @@ public class PerfumeNaoEncontrado extends RuntimeException {
     private String avisop;
 
     public PerfumeNaoEncontrado(String avisop) {
-        this.avisop = avisop;
+        this.avisop = "Este Perfume não foi encontrado";
     }
 
     public String getAvisop() {
